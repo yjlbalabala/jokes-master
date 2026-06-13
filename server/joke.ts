@@ -1,6 +1,6 @@
-import { chatCompletion } from './deepseek'
-import { buildMessages } from './prompts'
-import type { Atmosphere, JokeFailure, JokeRequestBody, JokeSuccess } from './types'
+import { chatCompletion } from './deepseek.js'
+import { buildMessages } from './prompts.js'
+import type { Atmosphere, JokeFailure, JokeRequestBody, JokeSuccess } from './types.js'
 
 function isJokeMode(value: unknown): value is JokeRequestBody['mode'] {
   return value === 'jp-kr' || value === 'western'

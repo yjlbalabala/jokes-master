@@ -1,4 +1,4 @@
-import type { Atmosphere, JokeRequestBody } from './types'
+import type { Atmosphere, JokeRequestBody } from './types.js'
 
 const ATMOSPHERE_TEXT: Record<Atmosphere, string> = {
   cold: '冷淡',

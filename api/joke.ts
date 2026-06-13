@@ -1,4 +1,4 @@
-import { generateJoke, parseJokeBody } from '../server/joke'
+import { generateJoke, parseJokeBody } from '../server/joke.js'
 
 type VercelRequest = {
   method?: string

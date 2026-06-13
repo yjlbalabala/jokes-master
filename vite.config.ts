@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { generateJoke, parseJokeBody } from './server/joke'
+import { generateJoke, parseJokeBody } from './server/joke.js'
 
 function apiJokeDevPlugin(): Plugin {
   return {
