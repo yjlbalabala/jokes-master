@@ -1,0 +1,43 @@
+schema: spec-driven
+
+context: |
+  ## 项目概述：生成笑话。
+  分为两种模式："日韩模式"和"欧美模式"
+  一："日韩模式"：
+  输入信息：
+  1、比如需要讲笑话的对象身份，如：死党、闺蜜、朋友，同学，同事，家人（如父母），老师，老板（boss）等等，由用户手动输入。
+  2、讲笑话的人的年龄。
+  3、笑话等级
+  使用彩虹进度条滑动，从左到右为从冷笑话到热笑话，越左边越冷，越右边越热。
+  4、整体氛围
+  分为三个等级："冷"、"中"、"热"。
+  1）"冷"：整体氛围冷淡。
+  2）"中"：整体氛围平淡。
+  3）"热"：整体氛围火热。
+  二："欧美模式"：
+  没有输入信息，直接生成。笑话的冷热程度也随机。也不管氛围。
+  ## 页面风格
+  1. 页面风格要骚气十足。无论是首页还是生成笑话的网页（生成过程页和生成结果页），都要有骚气的 emoji 图像。
+  2. 页面风格必须要摒弃 AI 味，可以使用开源的 Skill。
+  ## API 规范
+  对接 DeepSeek-v4-flash 官方 API 生成笑话，必须使用 DeepSeek-v4-flash 官方 API，不能使用其他 API。
+  前端通过 fetch 调用同源 `/api/joke` 代理；API Key 仅开发者配置（环境变量 / 部署平台），不在浏览器暴露或让用户填写。
+  ## 技术栈
+  - 构建：Vite + Vue 3
+  - 样式：手写 CSS 或轻量 utility，避免典型 AI 落地页审美（后续 change 统一打磨）
+  - 部署：静态 dist + 同仓 serverless 代理（Vercel Functions 或 Cloudflare Workers）
+  - 原则：技术栈简单，便于部署上线
+  ## 页面结构
+  首页（模式选择 + 日韩表单占位）→ 生成过程页 → 结果页
+  ## OpenSpec 变更拆分（按序 propose → apply）
+  1. scaffold-joke-app — Vite/Vue 骨架、路由或状态、三页占位、部署占位
+  2. deepseek-joke-api — 代理、DeepSeek 封装、env 约定、前端 fetch 层
+  3. jp-kr-joke-mode — 日韩表单、彩虹冷热条、氛围、prompt 与生成流
+  4. western-joke-mode — 欧美零输入、随机冷热/氛围 prompt
+  5. sassy-ui-theme — 全局骚气视觉、emoji、反 AI 味
+
+# Per-artifact rules (optional)
+# rules:
+#   proposal:
+#     - Keep proposals under 500 words
+#     - Always include a "Non-goals" section
